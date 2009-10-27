@@ -1,0 +1,412 @@
+﻿CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E ⊢ F→E"
+INFER E 
+     ⊢ F→E 
+FORMULAE
+0 E,
+1 F 
+IS
+SEQ ("→ intro"[A,B\1,0]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01 c.d."
+PROOF "(A→B) ⊢ ((A∧B)→A)∧(A→(A∧B))"
+INFER (A→B)
+     ⊢ ((A∧B)→A)∧(A→(A∧B))
+FORMULAE
+0 A→(A∧B),
+1 (A∧B)→A,
+2 A∧B,
+3 B,
+4 A,
+5 A→B,
+6 ((A∧B)→A)∧(A→(A∧B))
+IS
+SEQ (cut[B,C\1,6]) ("→ intro"[A,B\2,4]) (cut[B,C\4,4]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\4,3]) (hyp[A\2])) (hyp[A\4]) (cut[B,C\0,6]) ("→ intro"[A,B\4,2]) (cut[B,C\3,2]) ("→ elim"[A,B\4,3]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\2,2]) ("∧ intro"[A,B\4,3]) (hyp[A\4]) (hyp[A\3]) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E∧(F∧G) ⊢ (E∧F)∧G"
+INFER E∧(F∧G)
+     ⊢ (E∧F)∧G 
+FORMULAE
+0 (E∧F)∧G,
+1 G,
+2 E∧F,
+3 E∧F∧G,
+4 F,
+5 E,
+6 E∧(F∧G),
+7 F∧G 
+IS
+SEQ (cut[B,C\7,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\5,7]) (hyp[A\6])) (cut[B,C\1,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\4,1]) (hyp[A\7])) (cut[B,C\4,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\4,1]) (hyp[A\7])) (cut[B,C\5,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\5,7]) (hyp[A\6])) (cut[B,C\2,0]) ("∧ intro"[A,B\5,4]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\3,0]) ("∧ intro"[A,B\2,1]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "(E∧F)→G ⊢ E→F→G"
+INFER (E∧F)→G 
+     ⊢ E→F→G 
+FORMULAE
+0 G,
+1 E∧F,
+2 E∧F→G,
+3 F,
+4 E,
+5 F→G,
+6 (E∧F)→G 
+IS
+SEQ ("→ intro"[A,B\4,5]) ("→ intro"[A,B\3,0]) (cut[B,C\1,0]) ("∧ intro"[A,B\4,3]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→F→G→H ⊢ G→F→E→H"
+INFER E→F→G→H 
+     ⊢ G→F→E→H 
+FORMULAE
+0 H,
+1 G,
+2 G→H,
+3 F,
+4 F→G→H,
+5 E,
+6 E→F→G→H,
+7 E→H,
+8 F→E→H 
+IS
+SEQ ("→ intro"[A,B\1,8]) ("→ intro"[A,B\3,7]) ("→ intro"[A,B\5,0]) (cut[B,C\4,0]) ("→ elim"[A,B\5,4]) (hyp[A\6]) (hyp[A\5]) (cut[B,C\2,0]) ("→ elim"[A,B\3,2]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01 c.d."
+PROOF "(A→B), (C→D) ⊢ A∧C→B∧D"
+INFER (A→B),
+     (C→D)
+     ⊢ A∧C→B∧D 
+FORMULAE
+0 B∧D,
+1 D,
+2 B,
+3 A,
+4 A→B,
+5 A∧C,
+6 C,
+7 C→D 
+IS
+SEQ ("→ intro"[A,B\5,0]) (cut[B,C\6,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\3,6]) (hyp[A\5])) (cut[B,C\1,0]) ("→ elim"[A,B\6,1]) (hyp[A\7]) (hyp[A\6]) (cut[B,C\3,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\3,6]) (hyp[A\5])) (cut[B,C\2,0]) ("→ elim"[A,B\3,2]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("∧ intro"[A,B\2,1]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E∧F ⊢ E→F"
+INFER E∧F 
+     ⊢ E→F 
+FORMULAE
+0 F,
+1 E,
+2 E∧F,
+3 E→F 
+IS
+SEQ (cut[B,C\0,3]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\1,0]) (hyp[A\2])) (cut[B,C\1,3]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,0]) (hyp[A\2])) ("→ intro"[A,B\1,0]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→F→G ⊢ (E∧F)→G"
+INFER E→F→G 
+     ⊢ (E∧F)→G 
+FORMULAE
+0 G,
+1 F,
+2 F→G,
+3 E,
+4 E→F→G,
+5 E∧F 
+IS
+SEQ ("→ intro"[A,B\5,0]) (cut[B,C\1,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\3,1]) (hyp[A\5])) (cut[B,C\3,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\3,1]) (hyp[A\5])) (cut[B,C\2,0]) ("→ elim"[A,B\3,2]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "(E→F)→G ⊢ (E∧F)→G"
+INFER (E→F)→G 
+     ⊢ (E∧F)→G 
+FORMULAE
+0 G,
+1 E→F,
+2 (E→F)→G,
+3 F,
+4 E,
+5 E∧F 
+IS
+SEQ ("→ intro"[A,B\5,0]) (cut[B,C\3,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\4,3]) (hyp[A\5])) (cut[B,C\4,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\4,3]) (hyp[A\5])) (cut[B,C\1,0]) ("→ intro"[A,B\4,3]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "(E→F)∧(E→G) ⊢ E→(F∧G)"
+INFER (E→F)∧(E→G)
+     ⊢ E→(F∧G)
+FORMULAE
+0 F∧G,
+1 G,
+2 F,
+3 E,
+4 E→F,
+5 E→G,
+6 (E→F)∧(E→G),
+7 E→(F∧G)
+IS
+SEQ (cut[B,C\5,7]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\4,5]) (hyp[A\6])) (cut[B,C\4,7]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\4,5]) (hyp[A\6])) ("→ intro"[A,B\3,0]) (cut[B,C\1,0]) ("→ elim"[A,B\3,1]) (hyp[A\5]) (hyp[A\3]) (cut[B,C\2,0]) ("→ elim"[A,B\3,2]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("∧ intro"[A,B\2,1]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "A→(B→A)"
+INFER A→(B→A)
+FORMULAE
+0 A,
+1 B,
+2 B→A 
+IS
+SEQ ("→ intro"[A,B\0,2]) ("→ intro"[A,B\1,0]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01 c.d."
+PROOF "(A∧B)∧C, D∧E ⊢ B∧D"
+INFER (A∧B)∧C,
+     D∧E 
+     ⊢ B∧D 
+FORMULAE
+0 B∧D,
+1 D,
+2 B,
+3 A∧B,
+4 A,
+5 A∧B∧C,
+6 C,
+7 D∧E,
+8 E,
+9 (A∧B)∧C 
+IS
+SEQ (cut[B,C\1,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,8]) (hyp[A\7])) (cut[B,C\3,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\3,6]) (hyp[A\5])) (cut[B,C\2,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\4,2]) (hyp[A\3])) (cut[B,C\0,0]) ("∧ intro"[A,B\2,1]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "(E∧F)∧G ⊢ E∧(F∧G)"
+INFER (E∧F)∧G 
+     ⊢ E∧(F∧G)
+FORMULAE
+0 E∧(F∧G),
+1 F∧G,
+2 E,
+3 G,
+4 F,
+5 E∧F∧G,
+6 E∧F,
+7 (E∧F)∧G 
+IS
+SEQ (cut[B,C\6,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\6,3]) (hyp[A\5])) (cut[B,C\4,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\2,4]) (hyp[A\6])) (cut[B,C\2,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\2,4]) (hyp[A\6])) (cut[B,C\3,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\6,3]) (hyp[A\5])) (cut[B,C\1,0]) ("∧ intro"[A,B\4,3]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("∧ intro"[A,B\2,1]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E, E→F ⊢ F"
+INFER E,
+     E→F 
+     ⊢ F 
+FORMULAE
+0 F,
+1 E,
+2 E→F 
+IS
+SEQ (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→F ⊢ (F→G)→E→G"
+INFER E→F 
+     ⊢ (F→G)→E→G 
+FORMULAE
+0 G,
+1 F,
+2 F→G,
+3 E,
+4 E→F,
+5 E→G 
+IS
+SEQ ("→ intro"[A,B\2,5]) ("→ intro"[A,B\3,0]) (cut[B,C\1,0]) ("→ elim"[A,B\3,1]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\1,0]) (hyp[A\1]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "(E→F)→G ⊢ E→F→G"
+INFER (E→F)→G 
+     ⊢ E→F→G 
+FORMULAE
+0 G,
+1 E→F,
+2 (E→F)→G,
+3 F,
+4 E,
+5 F→G 
+IS
+SEQ ("→ intro"[A,B\4,5]) ("→ intro"[A,B\3,0]) (cut[B,C\1,0]) ("→ intro"[A,B\4,3]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E∧(F→G) ⊢ (E→F)→G"
+INFER E∧(F→G)
+     ⊢ (E→F)→G 
+FORMULAE
+0 G,
+1 F,
+2 F→G,
+3 E,
+4 E→F,
+5 E∧(F→G),
+6 (E→F)→G 
+IS
+SEQ (cut[B,C\2,6]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\3,2]) (hyp[A\5])) (cut[B,C\3,6]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\3,2]) (hyp[A\5])) ("→ intro"[A,B\4,0]) (cut[B,C\1,0]) ("→ elim"[A,B\3,1]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E∧F ⊢ F"
+INFER E∧F 
+     ⊢ F 
+FORMULAE
+0 F,
+1 E∧F,
+2 E 
+IS
+SEQ (cut[B,C\0,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\2,0]) (hyp[A\1])) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→F→G ⊢ F→E→G"
+INFER E→F→G 
+     ⊢ F→E→G 
+FORMULAE
+0 G,
+1 F,
+2 F→G,
+3 E,
+4 E→F→G,
+5 E→G 
+IS
+SEQ ("→ intro"[A,B\1,5]) ("→ intro"[A,B\3,0]) (cut[B,C\2,0]) ("→ elim"[A,B\3,2]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E∧F ⊢ E"
+INFER E∧F 
+     ⊢ E 
+FORMULAE
+0 E,
+1 E∧F,
+2 F 
+IS
+SEQ (cut[B,C\0,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\0,2]) (hyp[A\1])) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→F→G ⊢ (E→F)→(E→G)"
+INFER E→F→G 
+     ⊢ (E→F)→(E→G)
+FORMULAE
+0 G,
+1 F,
+2 F→G,
+3 E,
+4 E→F,
+5 E→F→G,
+6 E→G 
+IS
+SEQ ("→ intro"[A,B\4,6]) ("→ intro"[A,B\3,0]) (cut[B,C\2,0]) ("→ elim"[A,B\3,2]) (hyp[A\5]) (hyp[A\3]) (cut[B,C\1,0]) ("→ elim"[A,B\3,1]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\1,0]) (hyp[A\1]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→(F∧G) ⊢ (E→F)∧(E→G)"
+INFER E→(F∧G)
+     ⊢ (E→F)∧(E→G)
+FORMULAE
+0 E→G,
+1 E→F,
+2 G,
+3 F∧G,
+4 F,
+5 E,
+6 E→F∧G,
+7 (E→F)∧(E→G),
+8 E→(F∧G)
+IS
+SEQ (cut[B,C\1,7]) ("→ intro"[A,B\5,4]) (cut[B,C\3,4]) ("→ elim"[A,B\5,3]) (hyp[A\6]) (hyp[A\5]) (cut[B,C\4,4]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\4,2]) (hyp[A\3])) (hyp[A\4]) (cut[B,C\0,7]) ("→ intro"[A,B\5,2]) (cut[B,C\3,2]) ("→ elim"[A,B\5,3]) (hyp[A\6]) (hyp[A\5]) (cut[B,C\2,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\4,2]) (hyp[A\3])) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E, F ⊢ E∧F"
+INFER E,
+     F 
+     ⊢ E∧F 
+FORMULAE
+0 E∧F,
+1 F,
+2 E 
+IS
+SEQ (cut[B,C\0,0]) ("∧ intro"[A,B\2,1]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01 c.d."
+PROOF "(A→C), (B→C) ⊢ (A∧B)→C"
+INFER (A→C),
+     (B→C)
+     ⊢ (A∧B)→C 
+FORMULAE
+0 C,
+1 A,
+2 A→C,
+3 A∧B,
+4 B,
+5 B→C 
+IS
+SEQ ("→ intro"[A,B\3,0]) (cut[B,C\1,0]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,4]) (hyp[A\3])) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→F, F→G, E ⊢ G"
+INFER E→F,
+     F→G,
+     E 
+     ⊢ G 
+FORMULAE
+0 G,
+1 F,
+2 F→G,
+3 E,
+4 E→F 
+IS
+SEQ (cut[B,C\1,0]) ("→ elim"[A,B\3,1]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→F→E"
+INFER E→F→E 
+FORMULAE
+0 E,
+1 F,
+2 F→E 
+IS
+SEQ ("→ intro"[A,B\0,2]) ("→ intro"[A,B\1,0]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→(F→G), E→F, E ⊢ G"
+INFER E→(F→G),
+     E→F,
+     E 
+     ⊢ G 
+FORMULAE
+0 G,
+1 F,
+2 F→G,
+3 E,
+4 E→F→G,
+5 E→F,
+6 E→(F→G)
+IS
+SEQ (cut[B,C\1,0]) ("→ elim"[A,B\3,1]) (hyp[A\5]) (hyp[A\3]) (cut[B,C\2,0]) ("→ elim"[A,B\3,2]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "E→F, F→G ⊢ E→G"
+INFER E→F,
+     F→G 
+     ⊢ E→G 
+FORMULAE
+0 G,
+1 F,
+2 F→G,
+3 E,
+4 E→F 
+IS
+SEQ ("→ intro"[A,B\3,0]) (cut[B,C\1,0]) ("→ elim"[A,B\3,1]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Rachunek zdań - lab 01"
+PROOF "(E→F→G)→(E→F)→E→G"
+INFER (E→F→G)→(E→F)→E→G 
+FORMULAE
+0 G,
+1 F,
+2 F→G,
+3 E,
+4 E→F→G,
+5 E→F,
+6 E→G,
+7 (E→F)→E→G 
+IS
+SEQ ("→ intro"[A,B\4,7]) ("→ intro"[A,B\5,6]) ("→ intro"[A,B\3,0]) (cut[B,C\1,0]) ("→ elim"[A,B\3,1]) (hyp[A\5]) (hyp[A\3]) (cut[B,C\2,0]) ("→ elim"[A,B\3,2]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
