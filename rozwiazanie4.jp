@@ -1,0 +1,87 @@
+﻿CONJECTUREPANEL "Kontrprzykłady intuicjonistyczne - lab04"
+PROOF "¬(E→¬F) ⊢ E∧F"
+INFER ¬(E→¬F)
+     ⊢ E∧F 
+IS
+NEXTGOAL
+SEMANTICS
+¬(E→¬F) ⊧ E∧F 
+WORLD (0,0)
+  CHILDREN (33,63)
+WORLD (33,63)
+  LABELS F, E 
+END
+CONJECTUREPANEL "Kontrprzykłady intuicjonistyczne - lab04"
+PROOF "(¬¬E→E)∨¬E∨¬¬E"
+INFER (¬¬E→E)∨¬E∨¬¬E 
+IS
+NEXTGOAL
+SEMANTICS
+⊧ (¬¬E→E)∨¬E∨¬¬E 
+WORLD (23,70)
+  LABELS E 
+WORLD (0,0)
+  CHILDREN (10,38), (60,23)
+WORLD (60,23)
+WORLD (10,38)
+  CHILDREN (23,70)
+END
+CONJECTUREPANEL "Kontrprzykłady intuicjonistyczne - lab04"
+PROOF "E→F ⊢ ¬E∨F"
+INFER E→F 
+     ⊢ ¬E∨F 
+IS
+NEXTGOAL
+SEMANTICS
+E→F ⊧ ¬E∨F 
+WORLD (0,0)
+  CHILDREN (11,63)
+WORLD (11,63)
+  LABELS F, E 
+END
+CONJECTUREPANEL "Kontrprzykłady intuicjonistyczne - lab04"
+PROOF "¬E→F, ¬E→¬F ⊢ E"
+INFER ¬E→F,
+     ¬E→¬F 
+     ⊢ E 
+IS
+NEXTGOAL
+SEMANTICS
+¬E→F, ¬E→¬F ⊧ E 
+WORLD (32,62)
+  LABELS E 
+WORLD (0,0)
+  CHILDREN (32,62)
+END
+CONJECTUREPANEL "Kontrprzykłady intuicjonistyczne - lab04"
+PROOF "(¬¬E→E)∨¬E∨¬¬E∨(¬¬F→F)∨¬F∨¬¬F"
+INFER (¬¬E→E)∨¬E∨¬¬E∨(¬¬F→F)∨¬F∨¬¬F 
+IS
+NEXTGOAL
+SEMANTICS
+⊧ (¬¬E→E)∨¬E∨¬¬E∨(¬¬F→F)∨¬F∨¬¬F 
+WORLD (62,143)
+  LABELS F 
+WORLD (58,54)
+  CHILDREN (62,143)
+WORLD (0,0)
+  CHILDREN (58,54), (-48,61)
+WORLD (-48,61)
+  CHILDREN (-56,140)
+WORLD (-56,140)
+  LABELS E 
+END
+CONJECTUREPANEL "Kontrprzykłady intuicjonistyczne - lab04"
+PROOF "(E→F)∨(F→E)"
+INFER (E→F)∨(F→E)
+IS
+NEXTGOAL
+SEMANTICS
+⊧ (E→F)∨(F→E)
+WORLD (24,55)
+  LABELS F 
+WORLD (0,0)
+  CHILDREN (24,55), (-24,58)
+WORLD (-24,58)
+  LABELS E 
+END
