@@ -89,7 +89,7 @@ iloscZmiennych = wynik.split("").uniq.delete_if { |c| c =~ /[KAN]/ }.size
 iloscKoniunkcji = wynik.split("").delete_if { |c| c =~ /[AN\d]/ }.size + 1
 
 doPliku = "p cnf #{iloscZmiennych} #{iloscKoniunkcji}\n"
-doPliku += changeNotation(wynik).gsub("N", "-").gsub("A", " ").gsub("K", " 0 ")
+doPliku += changeNotation(wynik).gsub("N", "-").gsub("A", " ").gsub("K", " 0 ") + " 0"
 
 f = File.new("wyniczek.txt", "w") 
 f.write(doPliku)
