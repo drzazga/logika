@@ -1,6 +1,5 @@
 def split(formula)
-  ilosc = 1
-  counter = 0
+  ilosc, counter = 1, 0
   formula[1..-1].each_char do |c|
     counter += 1
     case c
