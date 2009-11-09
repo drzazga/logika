@@ -21,7 +21,7 @@ def nnf(formula)
     when /^N?\d$/ 
       formula
     when /^NN.+$/
-      formula[2..formula.length]
+      formula[2..-1]
     when /^K.+$/
       form1, form2 = split(formula)
       "K" + nnf(form1) + nnf(form2)
@@ -29,10 +29,10 @@ def nnf(formula)
       form1, form2 = split(formula)
       "A" + nnf(form1) + nnf(form2)
     when /^NK.+$/
-      form1, form2 = split(formula[1..formula.length])
+      form1, form2 = split(formula[1..-1])
       "K" + nnf("N" + form1) + nnf("N" + form2)
     when /^NA.+$/
-      form1, form2 = split(formula[1..formula.length])
+      form1, form2 = split(formula[1..-1])
       "A" + nnf("N" + form1) + nnf("N" + form2)
   end
 end
@@ -67,7 +67,7 @@ def changeNotation(formula)
     when /^N?\d$/ 
       formula
     when /^NN.+$/
-      formula[2..formula.length]
+      formula[2..-1]
     when /^K.+$/
       form1, form2 = split(formula)
       changeNotation(form1) + "K" + changeNotation(form2)
@@ -75,10 +75,10 @@ def changeNotation(formula)
       form1, form2 = split(formula)
       changeNotation(form1) + "A" + changeNotation(form2)
     when /^NK.+$/
-      form1, form2 = split(formula[1..formula.length])
+      form1, form2 = split(formula[1..-1])
       changeNotation("N" + form1) + "K" +  changeNotation("N" + form2)
     when /^NA.+$/
-      form1, form2 = split(formula[1..formula.length])
+      form1, form2 = split(formula[1..-1])
       changeNotation("N" + form1) + "A" + changeNotation("N" + form2)
   end
 end
