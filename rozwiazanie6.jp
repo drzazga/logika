@@ -1,0 +1,356 @@
+﻿CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∀x.R(x)∧∀y.S(y) ⊢ ∀z.(R(z)∧S(z))"
+INFER ∀x.R(x)∧∀y.S(y)
+     ⊢ ∀z.(R(z)∧S(z))
+FORMULAE
+0 R(i)∧S(i),
+1 S(i),
+2 R(i),
+3 actual i,
+4 ∀y.S(y),
+5 S(y),
+6 i,
+7 y,
+8 ∀x.R(x),
+9 R(x),
+10 x,
+11 R(z)∧S(z),
+12 z,
+13 ∀x.R(x)∧∀y.S(y),
+14 ∀z.(R(z)∧S(z))
+IS
+SEQ (cut[B,C\4,14]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\8,4]) (hyp[A\13])) (cut[B,C\8,14]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\8,4]) (hyp[A\13])) ("∀ intro"[i,P,x\6,11,12]) (cut[B,C\2,0]) ("∀ elim"[P,i,x\9,6,10]) (hyp[A\8]) (hyp[A\3]) (cut[B,C\1,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("∧ intro"[A,B\2,1]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∃x.(R(x)∧S(x)) ⊢ ∃y.R(y)∧∃z.S(z)"
+INFER ∃x.(R(x)∧S(x))
+     ⊢ ∃y.R(y)∧∃z.S(z)
+FORMULAE
+0 ∃z.S(z),
+1 ∃y.R(y),
+2 actual i1,
+3 S(i1),
+4 S(z),
+5 i1,
+6 z,
+7 R(i1)∧S(i1),
+8 R(i1),
+9 ∃x.(R(x)∧S(x)),
+10 R(x)∧S(x),
+11 x,
+12 ∃y.R(y)∧∃z.S(z),
+13 actual i,
+14 R(i),
+15 R(y),
+16 i,
+17 y,
+18 R(i)∧S(i),
+19 S(i)
+IS
+SEQ (cut[B,C\1,12]) ("∃ elim"[i,C,P,x\16,1,10,11]) (hyp[A\9]) (cut[B,C\14,1]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\14,19]) (hyp[A\18])) (cut[B,C\14,1]) (hyp[A\14]) ("∃ intro"[P,i,x\15,16,17]) (hyp[A\14]) (hyp[A\13]) (cut[B,C\0,12]) ("∃ elim"[i,C,P,x\5,0,10,11]) (hyp[A\9]) (cut[B,C\3,0]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\8,3]) (hyp[A\7])) (cut[B,C\3,0]) (hyp[A\3]) ("∃ intro"[P,i,x\4,5,6]) (hyp[A\3]) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "actual j, actual k, ∃x.¬R(x) ⊢ ∃y.(R(y)→R(j)∧R(k))"
+INFER actual j,
+     actual k,
+     ∃x.¬R(x)
+     ⊢ ∃y.(R(y)→R(j)∧R(k))
+FORMULAE
+0 actual i,
+1 R(i)→R(j)∧R(k),
+2 R(y)→R(j)∧R(k),
+3 i,
+4 y,
+5 ⊥,
+6 R(j)∧R(k),
+7 ¬R(i),
+8 R(i),
+9 ∃y.(R(y)→R(j)∧R(k)),
+10 ∃x.¬R(x),
+11 ¬R(x),
+12 x,
+13 actual j,
+14 actual k 
+IS
+SEQ ("∃ elim"[i,C,P,x\3,9,11,12]) (hyp[A\10]) (cut[B,C\1,9]) ("→ intro"[A,B\8,6]) (cut[B,C\5,6]) ("¬ elim"[B\8]) (hyp[A\8]) (hyp[A\7]) ("contra (constructive)"[B\6]) (hyp[A\5]) ("∃ intro"[P,i,x\2,3,4]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∀x.¬R(x) ⊢ ¬∃y.R(y)"
+INFER ∀x.¬R(x)
+     ⊢ ¬∃y.R(y)
+FORMULAE
+0 ⊥,
+1 ¬R(i),
+2 R(i),
+3 actual i,
+4 ∀x.¬R(x),
+5 ¬R(x),
+6 i,
+7 x,
+8 ∃y.R(y),
+9 R(y),
+10 y 
+IS
+SEQ ("¬ intro"[A\8]) ("∃ elim"[i,C,P,x\6,0,9,10]) (hyp[A\8]) (cut[B,C\1,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∃x.(R(x)∨S(x)) ⊢ ∃y.R(y)∨∃z.S(z)"
+INFER ∃x.(R(x)∨S(x))
+     ⊢ ∃y.R(y)∨∃z.S(z)
+FORMULAE
+0 ∃z.S(z),
+1 ∃y.R(y),
+2 actual i,
+3 S(i),
+4 S(z),
+5 i,
+6 z,
+7 ∃y.R(y)∨∃z.S(z),
+8 R(i),
+9 R(y),
+10 y,
+11 R(i)∨S(i),
+12 ∃x.(R(x)∨S(x)),
+13 R(x)∨S(x),
+14 x,
+15 ∃x.(R(x)∨S(x))
+IS
+SEQ ("∃ elim"[i,C,P,x\5,7,13,14]) (hyp[A\12]) ("∨ elim"[A,B,C\8,3,7]) (hyp[A\11]) (cut[B,C\8,7]) (hyp[A\8]) (cut[B,C\1,7]) ("∃ intro"[P,i,x\9,5,10]) (hyp[A\8]) (hyp[A\2]) (LAYOUT "∨ intro" (0) ("∨ intro(L)"[B,A\0,1]) (hyp[A\1])) (cut[B,C\3,7]) (hyp[A\3]) (cut[B,C\0,7]) ("∃ intro"[P,i,x\4,5,6]) (hyp[A\3]) (hyp[A\2]) (LAYOUT "∨ intro" (0) ("∨ intro(R)"[B,A\1,0]) (hyp[A\0]))
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "actual j, R(j), ∀x.(R(x)→S(x)) ⊢ S(j)"
+INFER actual j,
+     R(j),
+     ∀x.(R(x)→S(x))
+     ⊢ S(j)
+FORMULAE
+0 S(j),
+1 R(j),
+2 R(j)→S(j),
+3 actual j,
+4 ∀x.(R(x)→S(x)),
+5 R(x)→S(x),
+6 j,
+7 x 
+IS
+SEQ (cut[B,C\2,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "¬∃x.R(x) ⊢ ∀y.¬R(y)"
+INFER ¬∃x.R(x)
+     ⊢ ∀y.¬R(y)
+FORMULAE
+0 ⊥,
+1 ¬∃x.R(x),
+2 ∃x.R(x),
+3 actual i,
+4 R(i),
+5 R(x),
+6 i,
+7 x,
+8 ¬R(y),
+9 y 
+IS
+SEQ ("∀ intro"[i,P,x\6,8,9]) ("¬ intro"[A\4]) (cut[B,C\4,0]) (hyp[A\4]) (cut[B,C\2,0]) ("∃ intro"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∃x.R(x)∨∃y.S(y) ⊢ ∃z.(R(z)∨S(z))"
+INFER ∃x.R(x)∨∃y.S(y)
+     ⊢ ∃z.(R(z)∨S(z))
+FORMULAE
+0 actual i1,
+1 R(i1)∨S(i1),
+2 R(z)∨S(z),
+3 i1,
+4 z,
+5 S(i1),
+6 R(i1),
+7 ∃z.(R(z)∨S(z)),
+8 ∃y.S(y),
+9 S(y),
+10 y,
+11 actual i,
+12 R(i)∨S(i),
+13 i,
+14 R(i),
+15 S(i),
+16 ∃x.R(x),
+17 R(x),
+18 x,
+19 ∃x.R(x)∨∃y.S(y)
+IS
+SEQ ("∨ elim"[A,B,C\16,8,7]) (hyp[A\19]) ("∃ elim"[i,C,P,x\13,7,17,18]) (hyp[A\16]) (cut[B,C\12,7]) (LAYOUT "∨ intro" (0) ("∨ intro(L)"[B,A\15,14]) (hyp[A\14])) ("∃ intro"[P,i,x\2,13,4]) (hyp[A\12]) (hyp[A\11]) ("∃ elim"[i,C,P,x\3,7,9,10]) (hyp[A\8]) (cut[B,C\1,7]) (LAYOUT "∨ intro" (0) ("∨ intro(R)"[B,A\6,5]) (hyp[A\5])) ("∃ intro"[P,i,x\2,3,4]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "actual j, ∀x.R(x) ⊢ ∃y.R(y)"
+INFER actual j,
+     ∀x.R(x)
+     ⊢ ∃y.R(y)
+FORMULAE
+0 actual j,
+1 R(j),
+2 R(y),
+3 j,
+4 y,
+5 ∃y.R(y),
+6 ∀x.R(x),
+7 R(x),
+8 x 
+IS
+SEQ (cut[B,C\1,5]) ("∀ elim"[P,i,x\7,3,8]) (hyp[A\6]) (hyp[A\0]) (cut[B,C\1,5]) (hyp[A\1]) ("∃ intro"[P,i,x\2,3,4]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∀x.(R(x)→S(x)), ∀y.(S(y)→T(y)) ⊢ ∀z.(R(z)→T(z))"
+INFER ∀x.(R(x)→S(x)),
+     ∀y.(S(y)→T(y))
+     ⊢ ∀z.(R(z)→T(z))
+FORMULAE
+0 T(i),
+1 S(i),
+2 S(i)→T(i),
+3 R(i),
+4 R(i)→S(i),
+5 actual i,
+6 ∀x.(R(x)→S(x)),
+7 R(x)→S(x),
+8 i,
+9 x,
+10 R(i)→T(i),
+11 ∀y.(S(y)→T(y)),
+12 S(y)→T(y),
+13 y,
+14 R(z)→T(z),
+15 z 
+IS
+SEQ ("∀ intro"[i,P,x\8,14,15]) (cut[B,C\2,10]) ("∀ elim"[P,i,x\12,8,13]) (hyp[A\11]) (hyp[A\5]) (cut[B,C\4,10]) ("∀ elim"[P,i,x\7,8,9]) (hyp[A\6]) (hyp[A\5]) ("→ intro"[A,B\3,0]) (cut[B,C\1,0]) ("→ elim"[A,B\3,1]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∃x.R(x) ⊢ ¬∀y.¬R(y)"
+INFER ∃x.R(x)
+     ⊢ ¬∀y.¬R(y)
+FORMULAE
+0 ⊥,
+1 ¬R(i),
+2 R(i),
+3 actual i,
+4 ∀y.¬R(y),
+5 ¬R(y),
+6 i,
+7 y,
+8 ∃x.R(x),
+9 R(x),
+10 x 
+IS
+SEQ ("¬ intro"[A\4]) ("∃ elim"[i,C,P,x\6,0,9,10]) (hyp[A\8]) (cut[B,C\1,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∀x.(R(x)→S(x)), ∃y.R(y) ⊢ ∃z.S(z)"
+INFER ∀x.(R(x)→S(x)),
+     ∃y.R(y)
+     ⊢ ∃z.S(z)
+FORMULAE
+0 actual i,
+1 S(i),
+2 S(z),
+3 i,
+4 z,
+5 ∃z.S(z),
+6 R(i),
+7 R(i)→S(i),
+8 ∀x.(R(x)→S(x)),
+9 R(x)→S(x),
+10 x,
+11 ∃y.R(y),
+12 R(y),
+13 y 
+IS
+SEQ ("∃ elim"[i,C,P,x\3,5,12,13]) (hyp[A\11]) (cut[B,C\7,5]) ("∀ elim"[P,i,x\9,3,10]) (hyp[A\8]) (hyp[A\0]) (cut[B,C\1,5]) ("→ elim"[A,B\6,1]) (hyp[A\7]) (hyp[A\6]) (cut[B,C\1,5]) (hyp[A\1]) ("∃ intro"[P,i,x\2,3,4]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∀x.(R(x)∧S(x)) ⊢ ∀y.R(y)∧∀z.S(z)"
+INFER ∀x.(R(x)∧S(x))
+     ⊢ ∀y.R(y)∧∀z.S(z)
+FORMULAE
+0 ∀z.S(z),
+1 ∀y.R(y),
+2 S(i),
+3 R(i)∧S(i),
+4 R(i),
+5 actual i,
+6 ∀x.(R(x)∧S(x)),
+7 R(x)∧S(x),
+8 i,
+9 x,
+10 S(z),
+11 z,
+12 ∀y.R(y)∧∀z.S(z),
+13 R(i1),
+14 R(i1)∧S(i1),
+15 S(i1),
+16 actual i1,
+17 i1,
+18 R(y),
+19 y 
+IS
+SEQ (cut[B,C\1,12]) ("∀ intro"[i,P,x\17,18,19]) (cut[B,C\14,13]) ("∀ elim"[P,i,x\7,17,9]) (hyp[A\6]) (hyp[A\16]) (cut[B,C\13,13]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\13,15]) (hyp[A\14])) (hyp[A\13]) (cut[B,C\0,12]) ("∀ intro"[i,P,x\8,10,11]) (cut[B,C\3,2]) ("∀ elim"[P,i,x\7,8,9]) (hyp[A\6]) (hyp[A\5]) (cut[B,C\2,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\4,2]) (hyp[A\3])) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∀x.R(x) ⊢ ¬∃y.¬R(y)"
+INFER ∀x.R(x)
+     ⊢ ¬∃y.¬R(y)
+FORMULAE
+0 ⊥,
+1 ¬R(i),
+2 R(i),
+3 actual i,
+4 ∀x.R(x),
+5 R(x),
+6 i,
+7 x,
+8 ∃y.¬R(y),
+9 ¬R(y),
+10 y 
+IS
+SEQ ("¬ intro"[A\8]) ("∃ elim"[i,C,P,x\6,0,9,10]) (hyp[A\8]) (cut[B,C\2,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∃x.¬R(x) ⊢ ¬∀y.R(y)"
+INFER ∃x.¬R(x)
+     ⊢ ¬∀y.R(y)
+FORMULAE
+0 ⊥,
+1 ¬R(i),
+2 R(i),
+3 actual i,
+4 ∀y.R(y),
+5 R(y),
+6 i,
+7 y,
+8 ∃x.¬R(x),
+9 ¬R(x),
+10 x 
+IS
+SEQ ("¬ intro"[A\4]) ("∃ elim"[i,C,P,x\6,0,9,10]) (hyp[A\8]) (cut[B,C\2,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Intuicjonistyczny rachunek predykatów"
+PROOF "∀x.(R(x)→S(x)) ⊢ ∀y.R(y)→∀z.S(z)"
+INFER ∀x.(R(x)→S(x))
+     ⊢ ∀y.R(y)→∀z.S(z)
+FORMULAE
+0 S(i),
+1 R(i),
+2 R(i)→S(i),
+3 actual i,
+4 ∀x.(R(x)→S(x)),
+5 R(x)→S(x),
+6 i,
+7 x,
+8 ∀y.R(y),
+9 R(y),
+10 y,
+11 S(z),
+12 z,
+13 ∀z.S(z)
+IS
+SEQ ("→ intro"[A,B\8,13]) ("∀ intro"[i,P,x\6,11,12]) (cut[B,C\1,0]) ("∀ elim"[P,i,x\9,6,10]) (hyp[A\8]) (hyp[A\3]) (cut[B,C\2,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
