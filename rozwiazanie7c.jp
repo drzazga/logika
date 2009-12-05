@@ -1,6 +1,5 @@
 ﻿CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "∀x.(R(x)→S) ⊢ ∃x.R(x)→S"
-WHERE x NOTIN S 
 INFER ∀x.(R(x)→S)
      ⊢ ∃x.R(x)→S 
 FORMULAE
@@ -13,14 +12,12 @@ FORMULAE
 6 i,
 7 x,
 8 ∃x.R(x),
-9 R(x),
-10 ∀x.(R(x)→S)
+9 R(x)
 IS
 SEQ ("→ intro"[A,B\8,0]) ("∃ elim"[i,C,P,x\6,0,9,7]) (hyp[A\8]) (cut[B,C\2,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "actual j, R∨∃x.S(x) ⊢ ∃x.(R∨S(x))"
-WHERE x NOTIN R 
 INFER actual j,
      R∨∃x.S(x)
      ⊢ ∃x.(R∨S(x))
@@ -45,7 +42,6 @@ SEQ ("∨ elim"[A,B,C\6,8,7]) (hyp[A\14]) (cut[B,C\11,7]) (LAYOUT "∨ intro" (0
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "R∨∀x.S(x) ⊢ ∀x.(R∨S(x))"
-WHERE x NOTIN R 
 INFER R∨∀x.S(x)
      ⊢ ∀x.(R∨S(x))
 FORMULAE
@@ -63,8 +59,31 @@ IS
 SEQ ("∀ intro"[i,P,x\6,9,7]) ("∨ elim"[A,B,C\1,4,2]) (hyp[A\8]) (LAYOUT "∨ intro" (0) ("∨ intro(L)"[B,A\0,1]) (hyp[A\1])) (cut[B,C\0,2]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,2]) (hyp[A\0]) (LAYOUT "∨ intro" (0) ("∨ intro(R)"[B,A\1,0]) (hyp[A\0]))
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
-PROOF "actual j, ∀x.(R∧S(x)) ⊢ R∧∀x.S(x)"
+PROOF "∀x.(R∨S(x)) ⊢ R∨∀x.S(x)"
 WHERE x NOTIN R 
+INFER ∀x.(R∨S(x))
+     ⊢ R∨∀x.S(x)
+FORMULAE
+0 ⊥,
+1 ¬(R∨∀x.S(x)),
+2 R∨∀x.S(x),
+3 ∀x.S(x),
+4 R,
+5 ¬S(i),
+6 S(i),
+7 R∨S(i),
+8 actual i,
+9 ∀x.(R∨S(x)),
+10 R∨S(x),
+11 i,
+12 x,
+13 S(x),
+14 ∀x.(R∨S(x))
+IS
+SEQ ("contra (classical)"[A\2]) (cut[B,C\3,0]) ("∀ intro"[i,P,x\11,13,12]) (cut[B,C\7,6]) ("∀ elim"[P,i,x\10,11,12]) (hyp[A\9]) (hyp[A\8]) ("contra (classical)"[A\6]) ("∨ elim"[A,B,C\4,6,0]) (hyp[A\7]) (cut[B,C\2,0]) (LAYOUT "∨ intro" (0) ("∨ intro(L)"[B,A\3,4]) (hyp[A\4])) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0]) (cut[B,C\0,0]) ("¬ elim"[B\6]) (hyp[A\6]) (hyp[A\5]) (hyp[A\0]) (cut[B,C\2,0]) (LAYOUT "∨ intro" (0) ("∨ intro(R)"[B,A\4,3]) (hyp[A\3])) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Równoważności z kwantyfikatorami"
+PROOF "actual j, ∀x.(R∧S(x)) ⊢ R∧∀x.S(x)"
 INFER actual j,
      ∀x.(R∧S(x))
      ⊢ R∧∀x.S(x)
@@ -83,14 +102,12 @@ FORMULAE
 11 R∧S(j),
 12 S(j),
 13 actual j,
-14 j,
-15 ∀x.(R∧S(x))
+14 j 
 IS
 SEQ (cut[B,C\11,10]) ("∀ elim"[P,i,x\6,14,8]) (hyp[A\5]) (hyp[A\13]) (cut[B,C\1,10]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,12]) (hyp[A\11])) (cut[B,C\1,10]) (hyp[A\1]) (cut[B,C\0,10]) ("∀ intro"[i,P,x\7,9,8]) (cut[B,C\3,2]) ("∀ elim"[P,i,x\6,7,8]) (hyp[A\5]) (hyp[A\4]) (cut[B,C\2,2]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\1,2]) (hyp[A\3])) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "R∧∃x.S(x) ⊢ ∃x.(R∧S(x))"
-WHERE x NOTIN R 
 INFER R∧∃x.S(x)
      ⊢ ∃x.(R∧S(x))
 FORMULAE
@@ -110,7 +127,6 @@ SEQ (cut[B,C\8,7]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\6,8]) (hyp[A\10])) 
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "∃x.(R→S(x)) ⊢ R→∃x.S(x)"
-WHERE x NOTIN R 
 INFER ∃x.(R→S(x))
      ⊢ R→∃x.S(x)
 FORMULAE
@@ -123,14 +139,12 @@ FORMULAE
 6 R,
 7 R→S(i),
 8 ∃x.(R→S(x)),
-9 R→S(x),
-10 ∃x.(R→S(x))
+9 R→S(x)
 IS
 SEQ ("→ intro"[A,B\6,5]) ("∃ elim"[i,C,P,x\3,5,9,4]) (hyp[A\8]) (cut[B,C\6,5]) (hyp[A\6]) (cut[B,C\1,5]) ("→ elim"[A,B\6,1]) (hyp[A\7]) (hyp[A\6]) (cut[B,C\1,5]) (hyp[A\1]) ("∃ intro"[P,i,x\2,3,4]) (hyp[A\1]) (hyp[A\0])
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "∃x.R(x)→S ⊢ ∀x.(R(x)→S)"
-WHERE x NOTIN S 
 INFER ∃x.R(x)→S 
      ⊢ ∀x.(R(x)→S)
 FORMULAE
@@ -147,8 +161,64 @@ IS
 SEQ ("∀ intro"[i,P,x\6,8,7]) ("→ intro"[A,B\4,0]) (cut[B,C\4,0]) (hyp[A\4]) (cut[B,C\1,0]) ("∃ intro"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
-PROOF "R∧∀x.S(x) ⊢ ∀x.(R∧S(x))"
+PROOF "actual j, ∀x.R(x)→S ⊢ ∃x.(R(x)→S)"
+WHERE x NOTIN S 
+INFER actual j,
+     ∀x.R(x)→S 
+     ⊢ ∃x.(R(x)→S)
+FORMULAE
+0 ⊥,
+1 ¬∃x.(R(x)→S),
+2 ∃x.(R(x)→S),
+3 actual j,
+4 R(j)→S,
+5 R(x)→S,
+6 j,
+7 x,
+8 ¬S,
+9 S,
+10 ∀x.R(x),
+11 ∀x.R(x)→S,
+12 actual i,
+13 R(i)→S,
+14 i,
+15 ¬R(i),
+16 R(i),
+17 R(x),
+18 R(j)
+IS
+SEQ ("contra (classical)"[A\2]) (cut[B,C\4,0]) ("→ intro"[A,B\18,9]) ("contra (classical)"[A\9]) (cut[B,C\10,0]) ("∀ intro"[i,P,x\14,17,7]) ("contra (classical)"[A\16]) (cut[B,C\13,0]) ("→ intro"[A,B\16,9]) (cut[B,C\0,9]) ("¬ elim"[B\16]) (hyp[A\16]) (hyp[A\15]) ("contra (constructive)"[B\9]) (hyp[A\0]) (cut[B,C\2,0]) ("∃ intro"[P,i,x\5,14,7]) (hyp[A\13]) (hyp[A\12]) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0]) (cut[B,C\9,0]) ("→ elim"[A,B\10,9]) (hyp[A\11]) (hyp[A\10]) (cut[B,C\9,0]) (hyp[A\9]) (cut[B,C\0,0]) ("¬ elim"[B\9]) (hyp[A\9]) (hyp[A\8]) (hyp[A\0]) (cut[B,C\2,0]) ("∃ intro"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Równoważności z kwantyfikatorami"
+PROOF "actual j, R→∃x.S(x) ⊢ ∃x.(R→S(x))"
 WHERE x NOTIN R 
+INFER actual j,
+     R→∃x.S(x)
+     ⊢ ∃x.(R→S(x))
+FORMULAE
+0 ⊥,
+1 ¬∃x.(R→S(x)),
+2 ∃x.(R→S(x)),
+3 actual j,
+4 R→S(j),
+5 R→S(x),
+6 j,
+7 x,
+8 ¬S(j),
+9 S(j),
+10 actual i,
+11 R→S(i),
+12 i,
+13 S(i),
+14 R,
+15 ∃x.S(x),
+16 S(x),
+17 R→∃x.S(x)
+IS
+SEQ ("contra (classical)"[A\2]) (cut[B,C\4,0]) ("→ intro"[A,B\14,9]) (cut[B,C\15,9]) ("→ elim"[A,B\14,15]) (hyp[A\17]) (hyp[A\14]) ("contra (classical)"[A\9]) (cut[B,C\9,0]) ("∃ elim"[i,C,P,x\12,9,16,7]) (hyp[A\15]) ("contra (classical)"[A\9]) (cut[B,C\11,0]) ("→ intro"[A,B\14,13]) (hyp[A\13]) (cut[B,C\2,0]) ("∃ intro"[P,i,x\5,12,7]) (hyp[A\11]) (hyp[A\10]) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0]) (cut[B,C\0,0]) ("¬ elim"[B\9]) (hyp[A\9]) (hyp[A\8]) (hyp[A\0]) (cut[B,C\2,0]) ("∃ intro"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("¬ elim"[B\2]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Równoważności z kwantyfikatorami"
+PROOF "R∧∀x.S(x) ⊢ ∀x.(R∧S(x))"
 INFER R∧∀x.S(x)
      ⊢ ∀x.(R∧S(x))
 FORMULAE
@@ -168,7 +238,6 @@ SEQ (cut[B,C\4,10]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\1,4]) (hyp[A\9])) 
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "R→∀x.S(x) ⊢ ∀x.(R→S(x))"
-WHERE x NOTIN R 
 INFER R→∀x.S(x)
      ⊢ ∀x.(R→S(x))
 FORMULAE
@@ -186,7 +255,6 @@ SEQ ("∀ intro"[i,P,x\4,8,5]) ("→ intro"[A,B\6,0]) (cut[B,C\2,0]) ("→ elim"
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "∃x.(R∧S(x)) ⊢ R∧∃x.S(x)"
-WHERE x NOTIN R 
 INFER ∃x.(R∧S(x))
      ⊢ R∧∃x.S(x)
 FORMULAE
@@ -200,14 +268,12 @@ FORMULAE
 7 R∧∃x.S(x),
 8 R∧S(i),
 9 ∃x.(R∧S(x)),
-10 R∧S(x),
-11 ∃x.(R∧S(x))
+10 R∧S(x)
 IS
 SEQ ("∃ elim"[i,C,P,x\5,7,10,6]) (hyp[A\9]) (cut[B,C\3,7]) (LAYOUT "∧ elim" (0) ("∧ elim(R)"[A,B\1,3]) (hyp[A\8])) (cut[B,C\1,7]) (LAYOUT "∧ elim" (0) ("∧ elim(L)"[A,B\1,3]) (hyp[A\8])) (cut[B,C\1,7]) (hyp[A\1]) (cut[B,C\3,7]) (hyp[A\3]) (cut[B,C\0,7]) ("∃ intro"[P,i,x\4,5,6]) (hyp[A\3]) (hyp[A\2]) ("∧ intro"[A,B\1,0]) (hyp[A\1]) (hyp[A\0])
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "∀x.(R→S(x)) ⊢ R→∀x.S(x)"
-WHERE x NOTIN R 
 INFER ∀x.(R→S(x))
      ⊢ R→∀x.S(x)
 FORMULAE
@@ -220,14 +286,12 @@ FORMULAE
 6 i,
 7 x,
 8 S(x),
-9 ∀x.S(x),
-10 ∀x.(R→S(x))
+9 ∀x.S(x)
 IS
 SEQ ("→ intro"[A,B\1,9]) ("∀ intro"[i,P,x\6,8,7]) (cut[B,C\2,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\1,0]) (hyp[A\1]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "∃x.(R(x)→S) ⊢ ∀x.R(x)→S"
-WHERE x NOTIN S 
 INFER ∃x.(R(x)→S)
      ⊢ ∀x.R(x)→S 
 FORMULAE
@@ -240,14 +304,12 @@ FORMULAE
 6 i,
 7 x,
 8 ∃x.(R(x)→S),
-9 R(x)→S,
-10 ∃x.(R(x)→S)
+9 R(x)→S 
 IS
 SEQ ("→ intro"[A,B\4,0]) ("∃ elim"[i,C,P,x\6,0,9,7]) (hyp[A\8]) (cut[B,C\1,0]) ("∀ elim"[P,i,x\5,6,7]) (hyp[A\4]) (hyp[A\3]) (cut[B,C\0,0]) ("→ elim"[A,B\1,0]) (hyp[A\2]) (hyp[A\1]) (hyp[A\0])
 END
 CONJECTUREPANEL "Równoważności z kwantyfikatorami"
 PROOF "∃x.(R∨S(x)) ⊢ R∨∃x.S(x)"
-WHERE x NOTIN R 
 INFER ∃x.(R∨S(x))
      ⊢ R∨∃x.S(x)
 FORMULAE
@@ -261,8 +323,7 @@ FORMULAE
 7 R∨∃x.S(x),
 8 R∨S(i),
 9 ∃x.(R∨S(x)),
-10 R∨S(x),
-11 ∃x.(R∨S(x))
+10 R∨S(x)
 IS
 SEQ ("∃ elim"[i,C,P,x\5,7,10,6]) (hyp[A\9]) ("∨ elim"[A,B,C\1,3,7]) (hyp[A\8]) (LAYOUT "∨ intro" (0) ("∨ intro(L)"[B,A\0,1]) (hyp[A\1])) (cut[B,C\3,7]) (hyp[A\3]) (cut[B,C\0,7]) ("∃ intro"[P,i,x\4,5,6]) (hyp[A\3]) (hyp[A\2]) (LAYOUT "∨ intro" (0) ("∨ intro(R)"[B,A\1,0]) (hyp[A\0]))
 END
